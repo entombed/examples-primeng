@@ -1,0 +1,15 @@
+<app-start-page></app-start-page>
+<p-messages [(value)]="helloMessage"></p-messages>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <app-input-text (pushText)="addToArray($event)"></app-input-text>
+  </div>
+</div>
+<div class="ui-g">
+  <div class="ui-g-12 card-block">
+    <p-card title={{id}} class="card-item" *ngFor="let item of textArray; let id=index" (click)="oneClick(id, $event)" pDraggable="card-block" (onDragStart)="dragStart($event, 'card-item')" (onDrag)="dragKeep($event, 'card-item')">
+      <div>{{item}}</div>
+    </p-card>
+  </div>
+</div>
+

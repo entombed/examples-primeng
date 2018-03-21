@@ -1,0 +1,49 @@
+<ul>
+  <li>{{buttons.item1.status}}</li>
+  <li>{{buttons.item2.status}}</li>
+  <li>{{buttons.item3.status}}</li>
+</ul>
+<div class="ui-g">
+    <div class="ui-g-2">
+      <p-checkbox [(ngModel)]="buttons.item1.status" binary="true"></p-checkbox>{{buttons.item1.name}}
+    </div>
+    <div class="ui-g-4">
+      <p-toggleButton offLabel="Показать" onLabel="Скрыть" offIcon="fa-eye" onIcon="fa-eye-slash" [(ngModel)]="buttons.item1.status" [style]="{'width':'150px'}" ></p-toggleButton>
+    </div>
+    <div class="ui-g-6">
+    </div>
+    <div class="ui-g-2">
+      <p-checkbox [(ngModel)]="buttons.item2.status" binary="true"></p-checkbox>{{buttons.item2.name}}
+    </div>
+    <div class="ui-g-4">
+      <p-toggleButton offLabel="Показать" onLabel="Скрыть" offIcon="fa-eye" onIcon="fa-eye-slash" [(ngModel)]="buttons.item2.status" [style]="{'width':'150px'}" ></p-toggleButton>
+    </div>
+    <div class="ui-g-6">
+    </div>
+    <div class="ui-g-2">
+      <p-checkbox [(ngModel)]="buttons.item3.status" binary="true"></p-checkbox>{{buttons.item3.name}}
+    </div>
+    <div class="ui-g-4">
+      <p-toggleButton offLabel="Показать" onLabel="Скрыть" offIcon="fa-eye" onIcon="fa-eye-slash" [(ngModel)]="buttons.item3.status" [style]="{'width':'150px'}" ></p-toggleButton>
+    </div>
+    <div class="ui-g-6">
+    </div>
+</div>
+
+<div *ngIf="buttons.item1.status">
+  <h3>
+    ОТОБРАЗИТЬ БЛОК 1
+  </h3>
+</div>
+
+<div *ngIf="buttons.item2.status">
+  <h3>
+    ОТОБРАЗИТЬ БЛОК 2
+  </h3>
+</div>
+
+<div *ngIf="buttons.item3.status">
+  <h3>
+    ОТОБРАЗИТЬ БЛОК 3
+  </h3>
+</div> 

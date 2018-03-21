@@ -1,0 +1,48 @@
+<div *ngFor="let item of todoList">
+  <h4>{{item.name}}</h4>
+  <p><b>Действие:</b> {{item.dataText}}</p>
+  <p [ngClass]="setBgColor(item.selected, 'bgColor')">Выделено: {{item.selected}}</p>
+  <ul *ngIf="item.recepts">
+    <span>Рецепты</span>
+    <li *ngFor="let i of item.recepts">{{i.item}}</li>
+  </ul>
+  <hr>
+</div>
+<!-- <p-dataTable [value]="todoList" (onRowClick)="bgColorSwitch($event)">
+    <p-column field="name" header="Шаг"></p-column>
+    <p-column field="complited" header="Статус"></p-column>
+    <p-column field="dataText" header="Текс"></p-column>
+    <p-column field="step" header="Step"></p-column>
+</p-dataTable> -->
+
+<p-table [value]="todoList" selectionMode="multiple" [(selection)]="selectedRows">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Шаг</th>
+            <th>Статус</th>
+            <th>Текс</th>
+            <th>Step</th>
+            <th>Index</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+        <tr [ngClass]="setFontColor(rowData)" [pSelectableRow]="rowData" (dblclick)="selectedSingleRow=[rowData]; dbClickRow($event)" (click)="clickRow(rowData)">
+            <td>{{rowData.name}}</td>
+            <td>{{rowData.complited}}</td>
+            <td>{{rowData.dataText}}</td>
+            <td>{{rowData.step}}</td>
+            <td>{{rowIndex}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div style="text-align: left">
+            <p>Выбрано: {{(selectedRows)?selectedRows.length:0}}</p>
+            <button (click)="showRow()">Показать выбранные строки</button>
+        </div>
+    </ng-template>
+</p-table>
+<ul *ngIf="tmpSelectedRows.length && printSelectedRows">
+  <li *ngFor="let item of tmpSelectedRows">
+    {{item.name}} | {{item.complited}} | {{item.dataText}} | {{item.id}} | {{item.selected}} | {{item.step}}
+  </li>
+</ul>

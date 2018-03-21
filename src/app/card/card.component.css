@@ -1,0 +1,13 @@
+.ui-card-body {
+  padding: 0.5em;
+}
+.card-block{
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content:flex-start;
+  height: 600px;
+  background-color: lightgray;
+}
+.card-item {
+  width: 160px;
+}

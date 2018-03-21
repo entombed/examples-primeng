@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+.moved {
+  position: absolute;
+}
+
+.bgGreen{
+  background-color: rgb(0, 128, 0);
+  color: rgb(255, 255, 255);
+}
+
+.bgRed{
+  background-color: rgb(255, 0, 0);
+}
+
+.bgBlue {
+  background-color: rgb(2, 117, 216);
+  color: rgb(255, 255, 255);
+}
+
+.fontGreen{
+  color: rgb(0, 128, 0);
+}
+
+.fontRed{
+  color: rgb(255, 0, 0);
+}
+
+.fontBlue{
+  color: rgb(2, 117, 216);
+}
