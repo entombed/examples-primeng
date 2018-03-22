@@ -1,40 +1,15 @@
-
-<p-dialog header="Godfather I" [(visible)]="display" modal="modal" width="350" minWidth="200" minY="70">
+<p-dialog header="Godfather I" [(visible)]="display" modal="modal" minWidth="200" minY="70">
   <div *ngIf="selectedRow">
-    <p>{{selectedRow.name}}</p>
-    <p>{{selectedRow.id}}</p>
+    <p>{{selectedRow.question}}</p>
   </div>
   <div *ngIf="answerVisible">
-    <pre [innerHTML]="selectedRow.dataText"></pre>
+    <pre [innerHTML]="selectedRow.answer"></pre>
   </div>
   <p-footer>
-    <button type="button" pButton icon="fa-check" (click)="getAnswer()" label="show"></button>
+    <button type="button" pButton icon="fa-check" (click)="getAnswer()" label="{{answerVisible ? 'hide' : 'show'}}"></button>
     <button type="button" pButton icon="fa-check" (click)="answerVisible=false; getNext()" label="next"></button>
     <button type="button" pButton icon="fa-close" (click)="display=false; answerVisible=false" label="close"></button>
   </p-footer>
 </p-dialog>
 
-
-<p-table [value]="dataObj" selectionMode="single" [(selection)]="selectedRow">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Шаг</th>
-      <th>Статус</th>
-      <th>Текс</th>
-      <th>Step</th>
-      <th>Index</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
-    <tr [pSelectableRow]="rowData" (dblclick)="dbClickRow(rowData)">
-      <td>{{rowData.name}}</td>
-      <td>{{rowData.complited}}</td>
-      <!-- <td>{{rowData.dataText}}</td> -->
-      <td>{{rowData.step}}</td>
-      <td>{{rowIndex}}</td>
-    </tr>
-  </ng-template>
-</p-table>
-
-<button type="button" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show"></button>
-
+<button type="button" (click)="showDialog()" pButton icon="fa-external-link-square" label="START"></button>

@@ -21,67 +21,44 @@ export class ModalWindowComponent implements OnInit {
   selectedRow: any = null;
 
   showDialog() {
+    this.getNext();
     this.display = true;
-    this.answerVisible = false;
-    console.dir(this.selectedRow)
+    // console.dir(this.selectedRow)
   }
 
   dataObj = [
     {
-      name: 'шаг первый',
-      complited: true,
-      dataText: 'повернуть на лево',
-      step: '1',
-      id: 1,
-      selected: false
+      question: 'вопрос первый',
+      answer: 'повернуть на лево',
     },
     {
-      name: 'шаг второй',
-      complited: false,
-      dataText: 'взглянуть вверх',
-      step: '2',
-      id: 2,
-      selected: false
+      question: 'вопрос второй',
+      answer: 'взглянуть вверх',
     },
     {
-      name: 'шаг третий',
-      complited: false,
-      dataText: 'переступить порог',
-      step: '3',
-      id: 3,
-      selected: false
+      question: 'вопрос третий',
+      answer: 'переступить порог',
     },
     {
-      name: 'шаг четвертый',
-      complited: false,
-      dataText: 'подняться по ступеньке',
-      step: '4',
-      id: 4,
-      selected: false
+      question: 'вопрос четвертый',
+      answer: 'подняться по ступеньке',
     },
     {
-      name: 'шаг пятый',
-      complited: '',
-      dataText: `подпрыгнуть
-asasas asasa
-getAnswer(){
-  console.log("qqqq")
-}`,
-      step: '5',
-      id: 5,
-      selected: false
+      question: 'вопрос пятый',
+      answer:`
+подпрыгнуть
+sasas asasa
+  getAnswer(){
+    console.log("qqqq")
+  }
+`
     },
   ]
 
-  dbClickRow(rowData) {
-    this.selectedRow = rowData;
-    console.log('dbclick');
-    // console.dir(this.selectedRow);
-    this.display = true;
-  }
   getAnswer() {
-    this.answerVisible = true;
+    this.answerVisible = !this.answerVisible;
   }
+
   getNext() {
     let item = this._getRandomItem.getItem(0, this.dataObj.length);
     this.selectedRow = this.dataObj[item];
