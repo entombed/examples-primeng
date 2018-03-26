@@ -23,6 +23,8 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { ShowBlocksComponent } from './show-blocks/show-blocks.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { ModalWindowComponent } from './modal-window/modal-window.component';
+import { DirectiveComponent } from './directive/directive.component';
+import { ChangeColorDirective } from './directive/change-color.directive';
 
 const appRoutes: Routes =[
   { path: '', component: StartPageComponent},
@@ -31,6 +33,7 @@ const appRoutes: Routes =[
   { path: 'TodoList-Component', component: TodoListComponent},
   { path: 'TodoList-Component', component: ModalWindowComponent},
   { path: 'ModalWindow-Component', component: ModalWindowComponent},
+  { path: 'Directive-Component', component: DirectiveComponent},
   { path: '**', component: StartPageComponent}
 ];
 
@@ -43,6 +46,8 @@ const appRoutes: Routes =[
     ShowBlocksComponent,
     TodoListComponent,
     ModalWindowComponent,
+    DirectiveComponent,
+    ChangeColorDirective,
   ],
   imports: [
     BrowserModule,

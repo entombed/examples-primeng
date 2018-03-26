@@ -14,6 +14,7 @@ export class ModalWindowComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showDialog();
   }
 
   display: boolean = false;

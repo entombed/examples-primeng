@@ -1,8 +1,9 @@
-<p-dialog header="Godfather I" [(visible)]="display" modal="modal" minWidth="200" minY="70">
+<p-dialog header="Вопрос" [(visible)]="display" modal="modal" minWidth="400" >
   <div *ngIf="selectedRow">
-    <p>{{selectedRow.question}}</p>
+    <p [innerHTML]="selectedRow.question"></p>
   </div>
   <div *ngIf="answerVisible">
+    <h4>Ответ</h4>
     <pre [innerHTML]="selectedRow.answer"></pre>
   </div>
   <p-footer>
