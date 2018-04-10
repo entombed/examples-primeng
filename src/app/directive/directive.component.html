@@ -1,8 +1,9 @@
-<div class="block" appChangeColor [setColor]="color">
+<div class="block" appChangeColor [setColor]="color" (click)="color = ''">
   <h3>directive works!</h3>
-  <p> Background-color must be <span [innerHTML]="color"></span>. 
-    <span *ngIf="color == 'red' && 'green'">Default color changed</span>
-    <span *ngIf="color == 'blue' ">Default color</span>
+  <p> 
+    Background-color must be 
+    <span [innerHTML]="color"></span> 
+    <span *ngIf="color !== 'red' && color !== 'green' && color !== ''">Color not changed</span>
   </p>
 </div>
 <button (click)="clickMe()">

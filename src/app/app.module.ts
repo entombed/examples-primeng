@@ -13,6 +13,7 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
 import {CheckboxModule} from 'primeng/checkbox';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
+import {PanelModule} from 'primeng/panel';
 
 import { SetZindexItemService } from './services/set-zindex-item.service';
 import { GetRandomItemService } from './services/get-random-item.service';
@@ -25,6 +26,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { ModalWindowComponent } from './modal-window/modal-window.component';
 import { DirectiveComponent } from './directive/directive.component';
 import { ChangeColorDirective } from './directive/change-color.directive';
+import { CardDeckComponent } from './card-deck/card-deck.component';
+import { DeskComponent } from './card-deck/desk/desk.component';
+import { DeckBlock01Component } from './card-deck/deck-block-01/deck-block-01.component';
 
 const appRoutes: Routes =[
   { path: '', component: StartPageComponent},
@@ -34,6 +38,7 @@ const appRoutes: Routes =[
   { path: 'TodoList-Component', component: ModalWindowComponent},
   { path: 'ModalWindow-Component', component: ModalWindowComponent},
   { path: 'Directive-Component', component: DirectiveComponent},
+  { path: 'CardDeck-Component', component: CardDeckComponent},
   { path: '**', component: StartPageComponent}
 ];
 
@@ -48,6 +53,9 @@ const appRoutes: Routes =[
     ModalWindowComponent,
     DirectiveComponent,
     ChangeColorDirective,
+    CardDeckComponent,
+    DeskComponent,
+    DeckBlock01Component,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +71,8 @@ const appRoutes: Routes =[
     ToggleButtonModule,
     CheckboxModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    PanelModule
   ],
   providers: [SetZindexItemService],
   bootstrap: [AppComponent]

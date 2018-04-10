@@ -12,7 +12,7 @@ export class DirectiveComponent implements OnInit {
   ngOnInit() {
   }
   color = 'blue';
-  status = true;
+
   clickMe() {
     this.color = (this.color == 'red') ? 'green' : 'red';
     console.log(this.color)

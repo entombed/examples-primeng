@@ -1,0 +1,39 @@
+.cardDeskBlock {
+  min-height: 90vh;
+  background-color: darkcyan;
+  border: 1px solid grey;
+  overflow: scroll;
+}
+
+
+.flex-item {
+  margin: 0.25em;
+}
+
+.flex-container{
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#cardDesk {
+  position: relative;
+}
+
+#cardDesk .cardBlock {
+  display: inline-block;
+  margin: 0.25em;
+}
+
+.cardBlock {
+  background-color: gray;
+}
+
+.cardBlock img:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.37);
+}
+
+.imgBlock {
+  background-color: forestgreen;
+}

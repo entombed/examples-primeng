@@ -5,39 +5,33 @@ import { Directive, ElementRef, HostListener, Input, OnInit, OnChanges } from '@
 })
 
 export class ChangeColorDirective {
-  constructor(public element: ElementRef) { 
+  constructor(private element: ElementRef) { 
     // this.element.nativeElement.style.backgroundColor = 'yellow';
   }
   
-  ngOnInit(){
-    this.highlight(this.setColor)
-  }
-  ngOnChanges(){
-    this.highlight(this.setColor)
-  }
+  // ngOnInit(){
+  //   this.setBgColor(this.setColor)
+  // }
 
+  ngOnChanges(){
+    this.setBgColor(this.setColor)
+  }
 
   @Input() setColor: string;
 
-  @HostListener('mouseup') onmouseup() {
-    this.highlight('');
+  @HostListener('mouseenter') onmouseenter() {
+    this.fontColor('#ffffff');
   }
-  // @HostListener('mouseleave') onmouseleave() {
-  //   this.highlight('red');
-  // }
-  // @HostListener('mouseup') onmouseup() {
-  //   this.highlight('blue');
-  // }
-  // @HostListener('mousedown') onmousedown() {
-  //   this.highlight('green');
-  // }
 
+  @HostListener('mouseleave') onmouseleave() {
+    this.fontColor('');
+  }
 
-  public highlight(color){
+  private fontColor(size){
+    this.element.nativeElement.style.color = size;
+  }
+
+  private setBgColor(color){
     this.element.nativeElement.style.backgroundColor = color;
-    // this.element.nativeElement.classList.add('color-changed');
-    // if(this.element.nativeElement.classList.contains('color-changed')){
-    //   console.log('QQQ')
-    // }
   }
 }

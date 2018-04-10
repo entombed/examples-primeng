@@ -1,0 +1,13 @@
+<div class="cardDeskBlock">
+    <div *ngIf="elongatedCardsArray" id="cardDesk">
+        <div class="cardBlock" [ngClass]="{'imgBlock': card.moved }" *ngFor="let card of elongatedCardsArray; let id = index" (click)="onClick($event, card)">
+          <img *ngIf="card.inverted === false; else showShirt" class="img-card" src="./assets/images/{{card.name}}"/>
+          <ng-template #showShirt>
+            <img class="img-card" src="./assets/images/shirt.png"/>
+          </ng-template>
+          <div>id = {{id}}</div>
+          <div>card.name = {{card.name}}</div>
+          <div>card.id = {{card.id}}</div>
+        </div>
+    </div>
+  </div>

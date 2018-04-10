@@ -1,0 +1,17 @@
+<p-panel [toggleable]="true">
+    <div class="ui-md">
+      <p-button label="Resort" (onClick)="resort(deckCardsArray)"></p-button>
+      <p-button label="Inverte" (onClick)="inverte(deckCardsArray)"></p-button>
+    </div>
+    <div class="ui-md-12 flex-container" id="cardDeck">
+      <div class="cardBlock flex-item" *ngFor="let card of deckCardsArray; let id = index" (click)="onClick($event, card)" (dblclick)="onDblclick(card)">
+        <img *ngIf="card.inverted === false; else showShirt" class="img-card" src="./assets/images/{{card.name}}"/>
+        <ng-template #showShirt>
+          <img class="img-card" src="./assets/images/shirt.png"/>
+        </ng-template>
+        <div>id = {{id}}</div>
+        <div>card.name = {{card.name}}</div>
+        <div>card.id = {{card.id}}</div>
+      </div>
+    </div>
+  </p-panel>
