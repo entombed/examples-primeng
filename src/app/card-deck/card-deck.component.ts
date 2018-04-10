@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DeskComponent } from './desk/desk.component';
+import { DeckBlock01Component } from './deck-block-01/deck-block-01.component';
 
 @Component({
   selector: 'app-card-deck',
@@ -21,7 +23,10 @@ export class CardDeckComponent implements OnInit {
     //   );
     // }
   }
+  @ViewChild(DeskComponent) private deskComponent : DeskComponent;
+  @ViewChild(DeckBlock01Component) private deckBlock01Component : DeckBlock01Component;
 
+  tmpCard = null;
   // maxCardCount = 20;
   // deckCardsArray: any = [];
   // elongatedCardsArray: any =[];
@@ -36,6 +41,14 @@ export class CardDeckComponent implements OnInit {
   // }
 
   // onClick(event, card){
+    
+  //   if (event.ctrlKey === true) {
+  //     let index = this.elongatedCardsArray.indexOf(card);
+  //     this.elongatedCardsArray.splice(index, 1);
+  //     card.inverted = this.inverteDeck ? true : false;
+  //     this.deckCardsArray.splice(card.id, 0, card);
+      
+  //   }
   //   if (event.altKey === true){
   //     card.inverted = !card.inverted;
   //   }
@@ -67,6 +80,14 @@ export class CardDeckComponent implements OnInit {
   // }
 
   catchCard(card){
-    console.log(card)
+    this.tmpCard = card;
+    console.log(this.tmpCard);
+    this.deskComponent.addToArray(card);
+  }
+
+  addToDeck(card){
+    this.tmpCard = card;
+    console.log(this.tmpCard);
+    this.deckBlock01Component.addToArray(card);
   }
 }

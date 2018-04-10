@@ -17,7 +17,8 @@ export class DeckBlock01Component implements OnInit {
           name: `${i}.png`,
           inverted: false,
           moved: false,
-          id: i-1
+          id: i-1,
+          block: 'app-deck-block-01'
         }
       );
     }
@@ -26,6 +27,12 @@ export class DeckBlock01Component implements OnInit {
   maxCardCount = 20;
   deckCardsArray: any = [];
   inverteDeck = false;
+
+  addToArray(card){
+    card.inverted = this.inverteDeck ? true : false;
+    this.deckCardsArray.splice(card.id, 0, card);
+    this.deckCardsArray.push(card);
+  }
 
   onClick(event, card){
     if (event.altKey === true){
@@ -51,10 +58,10 @@ export class DeckBlock01Component implements OnInit {
     }
   }
 
-  inverte(array) {
+  inverte() {
     this.inverteDeck = !this.inverteDeck;
-    for (let i = 0; i < array.length; i++){
-      array[i].inverted =  !array[i].inverted;
+    for (let i = 0; i < this.deckCardsArray.length; i++){
+      this.deckCardsArray[i].inverted =  !this.deckCardsArray[i].inverted;
     }
   }
 
